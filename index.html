@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poop Counter</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/forms"></script>
+<script>
+  function addPoop() {
+    const counter = document.getElementById('counter');
+    const log = document.getElementById('log');
+    let count = parseInt(counter.innerText);
+    counter.innerText = ++count;
+    log.innerHTML += `<div class="flex justify-between text-white py-1">
+                        <span>${new Date().toLocaleDateString()}</span>
+                        <span>${new Date().toLocaleTimeString()}</span>
+                      </div>`;
+  }
+
+  function removePoop() {
+    const counter = document.getElementById('counter');
+    let count = parseInt(counter.innerText);
+    if (count > 0) {
+      counter.innerText = --count;
+    }
+  }
+</script>
+<style>
+  .counter-icon {
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body class="bg-gray-800 min-h-screen flex flex-col items-center justify-center text-white">
+  <div class="text-6xl mb-4">💩</div>
+  <h1 class="text-4xl font-bold mb-4">Poop Counter</h1>
+  <div class="flex items-center mb-4">
+    <img src="https://img.icons8.com/ios-filled/50/000000/minus.png" alt="Minus" class="counter-icon" onclick="removePoop()">
+    <span id="counter" class="mx-4 text-3xl">0</span>
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/plus-math.png" alt="Plus" class="counter-icon" onclick="addPoop()">
+  </div>
+  <div id="log" class="w-full max-w-md px-4">
+    <!-- Timestamps will be added here -->
+  </div>
+</body>
+</html>
