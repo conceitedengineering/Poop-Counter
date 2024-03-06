@@ -22,11 +22,10 @@
       }
     ],
 
-    "start_url": "/index.html",
     "background_color": "#000000",
     "display": "standalone",
     "scope": "/",
-    "theme_color": "#4A90E2"
+    "theme_color": "#1C2530"
   
   }
   
